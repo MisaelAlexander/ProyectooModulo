@@ -1,0 +1,42 @@
+.navbar-edit
+{
+    background: linear-gradient(35deg, #BFA439 30%, #255139 70%);  
+}
+
+.navbar-edit img
+{
+    width: 80%;
+    height: 80%;     
+}
+.navbar-nav
+{
+    color: #253F51;    
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.navbar-nav :hover
+{
+    background-color: #253F51;
+    color: #BFA439;
+    border-radius: 20px;
+    animation: Moverseaunlado 2s;
+}
+.espacio
+{
+    margin-left: 15%;
+    margin-right: 15%;
+}
+@keyframes Moverseaunlado
+{
+    0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(7px);
+      }
+}
+body
+{
+    background-color: #253F51;
+}
