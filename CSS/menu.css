@@ -40,3 +40,19 @@ body
 {
     background-color: #253F51;
 }
+.ImagenTabla
+{
+    width: 20%;
+    height: 20%; 
+}
+.Titulo
+{
+    text-align: center;
+    color: #BFA439; 
+}
+.Titulo:hover
+{
+    text-align: center;
+    color: #b67c00; 
+    transition:  3s all;
+}
