@@ -115,17 +115,23 @@ btnAgregar.addEventListener("click",()=>{
   });
 btnCerrar.addEventListener("click",()=>{
     modal.close();
+    LimpiarCampos();
   });
 
   /*Carga de la imagen */
-  async function subirimagen(file) 
+  async function subirimagen(file)
+  
   {
+    
   const fd = new FormData();
   fd.append('image', file) 
   const res = await fetch(IMG_API_URL, {method:'POST',body: fd});
   const obj = await res.json();
+  
   return obj.data.url;
   }
+
+
  
 document.getElementById("dialogAgregar").addEventListener("submit",async e => {
     e.preventDefault();//Evita que el formulario se envie
@@ -156,7 +162,7 @@ document.getElementById("dialogAgregar").addEventListener("submit",async e => {
         alert("Registro Actualizado")
         ObtenerAutos();
         modal.close();
-        
+        LimpiarCampos();
     }
     else
     {
@@ -168,24 +174,58 @@ document.getElementById("dialogAgregar").addEventListener("submit",async e => {
         alert("Registro Agregado")
         ObtenerAutos();
         modal.close();
+        LimpiarCampos();
     }
     
   });//Fin del formulario
 
-  function EditarAuto(id,marca,modelo,anio,propietario,observaciones,precio,tipodevehiculo,combustible)
+  function EditarAuto(id, marca, modelo, anio, propietario, observaciones, precio, tipodevehiculo, combustible) {
+    // Asignación de valores a los campos
+    document.getElementById("auto-id").value = id;
+    document.getElementById("marca").value = marca;
+    document.getElementById("modelo").value = modelo;
+    document.getElementById("anio").value = anio;
+    document.getElementById("vendedor").value = propietario;
+    document.getElementById("comentario").value = observaciones;
+    document.getElementById("precio").value = precio;
+    document.getElementById("opciones-vehiculo").value = tipodevehiculo;
+    document.getElementById("imagen-file").value = '';  // Limpiar el campo de imagen (si corresponde)
+    document.getElementById("opciones-combustible").value = combustible;
+
+    // Mostrar modal
+    modal.showModal();
+}
+
+  function LimpiarCampos()
   {
-document.getElementById("auto-id").value = id;    
-document.getElementById("marca").value = marca;
-document.getElementById("modelo").value = modelo;
-document.getElementById("anio").value = anio;
-document.getElementById("vendedor").value = propietario;
-document.getElementById("comentario").value = observaciones;
-document.getElementById("precio").value = precio;
-document.getElementById("opciones-vehiculo"). value = tipodevehiculo;
-document.getElementById("imagen-file"). value = '';
-document.getElementById("opciones-combustible").value = combustible;
+document.getElementById("auto-id").value = " ";    
+document.getElementById("marca").value = " ";
+document.getElementById("modelo").value = " ";
+document.getElementById("anio").value = " ";
+document.getElementById("vendedor").value = " ";
+document.getElementById("comentario").value = " ";
+document.getElementById("precio").value = " ";
+document.getElementById("imagen-file").value = " ";
 modal.showModal();
   }
 
+
+const inputImagen = document.getElementById("imagen-file");
+const vistaPrevia = document.getElementById("vista-prev");
+
+
+inputImagen.addEventListener("change", function(event) {
+    if (event.target.files && event.target.files[0]) {   
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            vistaPrevia.src = e.target.result;
+            vistaPrevia.style.display = 'block';  
+        };
+        // Leer el archivo como una URL de datos (data URL)
+        reader.readAsDataURL(event.target.files[0]);
+    } else {
+        vistaPrevia.style.display = 'none';  
+    }
+});
 
   

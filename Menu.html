@@ -60,87 +60,53 @@
             </div>
         </div>
       </main>
+
+      
       <!--Agrregar -->
       <dialog id="dialogAgregar">
         <article>
-             <!-- Guarda la URL de la imagen cuando se edita un registro (para no subirla de nuevo si no cambia) -->
-      <input type="hidden" id="imagen-url" />
-
-      <!-- Guarda el ID del autp que se está editando (vacío en modo "agregar") -->
-      <input type="hidden" id="auto-id" />
+            <input type="hidden" id="imagen-url" />
+            <input type="hidden" id="auto-id" />
             <header>
                 <a href="#" class="close" id="btnCerrarModal"></a>
                 <h3>Agregar Automoviles</h3>
             </header>
-            <form id="frmAgregarIntegrante">
+            <form  class="TmnoF" id="frmAgregarIntegrante" >
                 <label for="opciones">Selecciona un Tipo De Vehiculo:</label>
-                
-        <select name="opcion_seleccionada" id="opciones-vehiculo">
-            <option value="Sedan">Sedan</option>
-            <option value="Camioneta">Camioneta</option>
-            <option value="Suv">Suv</option>
-            <option value="Hatchback">Hatchback</option>
-        </select>
-
-                 <label for="opciones">Selecciona un Combustible:</label>
-        <select name="opcion_seleccionada" id="opciones-combustible">
-            <option value="Especial">Especial</option>
-            <option value="Diesel">Diesel</option>
-            <option value="Regular">Regular</option>
-            <option value="Electrico">Electrico</option>
-        </select>
+                <select name="opcion_seleccionada" id="opciones-vehiculo">
+                    <option value="Sedan">Sedan</option>
+                    <option value="Camioneta">Camioneta</option>
+                    <option value="Suv">Suv</option>
+                    <option value="Hatchback">Hatchback</option>
+                </select>
+    
+                <label for="opciones">Selecciona un Combustible:</label>
+                <select name="opcion_seleccionada" id="opciones-combustible">
+                    <option value="Especial">Especial</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Regular">Regular</option>
+                    <option value="Electrico">Electrico</option>
+                </select>
+    
                 <input type="file" id="imagen-file" accept="image/*" />
-                <input type="date" placeholder="Año" id="anio" required>
-                <input type="text" id="marca" placeholder="Marca" required>
-                <input type="text" id="modelo" placeholder="Modelo" required>
-                <input type="text" placeholder="Vendedor" id="vendedor" required>
-                <input type="text" id="precio" placeholder="Precio" required>
-                <input type="text" id="comentario" placeholder="Comentario" required>
+                <!-- Vista previa de img bro-->
+                <div>
+                    <img class="vpimg"   id="vista-prev" src="" alt="Vista previa de la imagen" style="display:none; max-width: 600px; max-height: 300px; border-radius: 5%; text-align: center; align-items: center;"/>
+                </div>
+    
+                <input type="date" placeholder="Año" id="anio" value="2024-09-22"min="1950-02-25" max="2024-12-25" step="2"  required>
+                <input type="text" id="marca" placeholder="Marca" pattern="^[A-Za-z\s]+$" required>
+                <input type="text" id="modelo" placeholder="Modelo" pattern="^[A-Za-z\s]+$" required>
+                <input type="text" placeholder="Vendedor" id="vendedor" pattern="^[A-Za-z\s]+$" required>
+                <input type="text" id="precio" placeholder="Precio" min="1" max="10000" pattern="^\d+$" required>
+                <input type="text" id="comentario" placeholder="Comentario" pattern="^[A-Za-z\s]+$" required>
                 <button type="submit" class="contrast">Guardar</button>
             </form>
         </article>
     </dialog>
 
-    <!--Actualziar-->
-    <dialog id="dialogAgregar">
-        <article>
-             <!-- Guarda la URL de la imagen cuando se edita un registro (para no subirla de nuevo si no cambia) -->
-      <input type="hidden" id="imagen-url" />
 
-      <!-- Guarda el ID del autp que se está editando (vacío en modo "agregar") -->
-      <input type="hidden" id="auto-id" />
-            <header>
-                <a href="#" class="close" id="btnCerrarModal"></a>
-                <h3>Agregar Automoviles</h3>
-            </header>
-            <form id="frmAgregarIntegrante">
-                <label for="opciones">Selecciona un Tipo De Vehiculo:</label>
-                
-        <select name="opcion_seleccionada" id="opciones-vehiculo">
-            <option value="Sedan">Sedan</option>
-            <option value="Camioneta">Camioneta</option>
-            <option value="Suv">Suv</option>
-            <option value="Hatchback">Hatchback</option>
-        </select>
-
-                 <label for="opciones">Selecciona un Combustible:</label>
-        <select name="opcion_seleccionada" id="opciones-combustible">
-            <option value="Especial">Especial</option>
-            <option value="Diesel">Diesel</option>
-            <option value="Regular">Regular</option>
-            <option value="Electrico">Electrico</option>
-        </select>
-                <input type="file" id="imagen-file" accept="image/*" />
-                <input type="date" placeholder="Año" id="anio" required>
-                <input type="text" id="marca" placeholder="Marca" required>
-                <input type="text" id="modelo" placeholder="Modelo" required>
-                <input type="text" placeholder="Vendedor" id="vendedor" required>
-                <input type="text" id="precio" placeholder="Precio" required>
-                <input type="text" id="comentario" placeholder="Comentario" required>
-                <button type="submit" class="contrast">Guardar</button>
-            </form>
-        </article>
-    </dialog>
+    
      <button class="add-button" id="btnAbrirDialog" title="Agregar Automoviles">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round-plus-icon lucide-user-round-plus"><path d="M2 21a8 8 0 0 1 13.292-6"/><circle cx="10" cy="8" r="5"/><path d="M19 16v6"/><path d="M22 19h-6"/></svg>
     </button>

@@ -94,3 +94,19 @@ body
     background-color: goldenrod;
     border: none;
 }
+
+
+
+.vpimg {
+    justify-content: center;
+    padding-left: 15%;
+    padding-left: 15%;
+}
+
+
+.TmnoF {
+    width: 80%; 
+    
+    max-width: 1000px;
+    margin: 0 auto; 
+}
