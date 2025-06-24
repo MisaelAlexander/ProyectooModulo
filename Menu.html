@@ -26,45 +26,78 @@
         </div>
       </nav>
       <main>
+        <!-- Guarda la URL de la imagen cuando se edita un registro (para no subirla de nuevo si no cambia) -->
+      <input type="hidden" id="imagen-url" />
+
+      <!-- Guarda el ID de la persona que se está editando (vacío en modo "agregar") -->
+      <input type="hidden" id="persona-id" />
         <br>
         <div ><h1 class="Titulo">Vehiculos publicados</h1></div>
-        <div>
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Marca</th>
-                    <th scope="col">Modelo</th>
-                    <th scope="col">Año</th>
-                    <th scope="col">Vendedor</th>
-                    <th scope="col">Observaciones del vehiculo</th>
-                    <th scope="col">Precio de Venta</th>
-                    <th scope="col">Imagen</th>
-                    <th scope="col">Clase de Auto</th>
-                    <th scope="col">Combustible de consumo</th>
-                    <th scope="col">Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Nissan</td>
-                    <td>Toyota</td>
-                    <td>2008</td>
-                    <td>Juan Garcia</td>
-                    <td>Funcionamiento correcto y en excelente condiciones</td>
-                    <td>$20000</td>
-                    <td> <img src="IMG/Carro.PNG" alt="Carro" class="ImagenTabla"></td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>  
-                        <Button class="btn btn-warning" onclick="Actualizar"> Actualizar </Button>
-                        <Button class="btn btn-danger" onclick="ELiminar"> Eliminar </Button></td>
-                  </tr>
-                </tbody>
-              </table>
+        <div class="Cotnenedor">
+            <div class="table-responsive">
+                <table class="table table-hover" id="tabla">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Año</th>
+                            <th scope="col">Vendedor</th>
+                            <th scope="col">Observaciones</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Clase</th>
+                            <th scope="col">Combustible</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Los datos se cargarán aquí con JavaScript -->
+                         <!--Preguntarle al profe cual le aprece mejor si el texto o la bolita-->
+                        <tr>
+                            <td colspan="11" class="text-center">Cargando vehículos... peude llevar unos segundos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+        <button id="openModalBtn">Abrir Diálogo</button>
       </main>
+      <dialog id="modalAgregar" open>
+        <article>
+            <header>
+                <a href="#" class="close" id="btnCerrarModal"></a>
+                <h3>Agregar Integrantes</h3>
+            </header>
+            <form id="frmAgregarIntegrante">
+                <label for="opciones">Selecciona un TIpo De Vehiculo:</label>
+        <select name="opcion_seleccionada" id="opciones">
+            <option value="Especial">Especial</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Regular">Regular</option>
+            <option value="Electrico">Electrico</option>
+        </select>
+
+                 <label for="opciones">Selecciona un Combustible:</label>
+        <select name="opcion_seleccionada" id="opciones">
+            <option value="Especial">Especial</option>
+            <option value="Diesel">Diesel</option>
+            <option value="Regular">Regular</option>
+            <option value="Electrico">Electrico</option>
+        </select>
+                <input type="number" placeholder="Edad" id="Anio" required>
+                <input type="email" id="email" placeholder="Imagen" required>
+                <input type="text" id="nombre" placeholder="Marca" required>
+                <input type="text" id="apellido" placeholder="Modelo" required>
+                <input type="number" placeholder="Edad" id="Propietario" required>
+                <input type="email" id="email" placeholder="Precio" required>
+                <button type="submit" class="contrast">Guardar</button>
+            </form>
+        </article>
+    </dialog>
+     <button class="add-button" id="btnAbrirModal" title="Agregar Integrantes">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round-plus-icon lucide-user-round-plus"><path d="M2 21a8 8 0 0 1 13.292-6"/><circle cx="10" cy="8" r="5"/><path d="M19 16v6"/><path d="M22 19h-6"/></svg>
+    </button>
     <script src="JS/Menu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>
