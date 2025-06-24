@@ -148,7 +148,7 @@ document.getElementById("dialogAgregar").addEventListener("submit",async e => {
     }
     if(id.value)
     {
-        await fetch(API_URL,{
+        await fetch(`${API_URL}/${id.value}`,{
             method:'PUT',
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify(datos)
@@ -156,6 +156,7 @@ document.getElementById("dialogAgregar").addEventListener("submit",async e => {
         alert("Registro Actualizado")
         ObtenerAutos();
         modal.close();
+        
     }
     else
     {
@@ -185,3 +186,6 @@ document.getElementById("imagen-file"). value = '';
 document.getElementById("opciones-combustible").value = combustible;
 modal.showModal();
   }
+
+
+  
